@@ -1,4 +1,4 @@
-console.log("loading server.js");
+console.log("I'm loading server.js");
 
 var express = require('express'),
     server = express(),
