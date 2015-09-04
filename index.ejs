@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="RummyApp">
+  <head>
+    <meta charset="utf-8">
+
+    <title>The New Rummy Scorekeeper</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+
+    <link href="style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body ng-controller="RummyController as rummy">
+
+  <!-- app.js contains Angular code -->
+  <script src="app.js"></script>
+  <div class="container">
+  <h1 class="col s12">The New Rummy Scorekeeper!</h1>
+  <!-- Form to enter player names. eventually to include database access, ability to view player page, etc. -->
+  <div id="newPlayerForm-container" class="col s12">
+    <p id="enter-p">Enter 2 - 4 players to begin</p>
+    <form id="new-player-form" ng-submit="rummy.startGame()">
+      <input type="text" id="p1Name" class="pName col s2 validation" placeholder="Player One" value="Ethan" required />
+      <input type="text" id="p2Name" class="pName col s2 validation" placeholder="Player One" value="Lou" required />
+      <input type="text" id="p3Name" class="pName col s2" placeholder="Player Three" value="Anna" />
+      <input type="text" id="p4Name" class="pName col s2" placeholder="Player Four" value="Emily" />
+      <button id="start-button" class ="col s2" value="Begin game" />Begin game</button>
+    </form>
+  </div>
+
+  <!-- The game table for entering and displaying the scores -->
+  <div id="game-table" class="hidden col s12">
+
+    <!-- The 'titles row' displays the player names -->
+    <div id="titles-row" class="col s8">
+    </div>
+
+    <!-- The table body contains the scores from past turns -->
+    <div id="table-body" class="col s12">
+    </div>
+
+    <!-- The entry row contains the inputs to enter the current turn's scores -->
+    <div class="entry-row col s8">
+      <form id="entry-row-form" ng-submit="rummy.nextRow()" class="col s8">
+      </form>
+    </div>
+
+    <!-- The 'totals-div' contains each player's totals to daye -->
+    <div id="totals-div" class = "col s12">
+      <div id="totals-row">
+      </div>
+    </div>
+  </div>
+
+  <footer class="col s12">
+    <p>Developed by <a href="http://ethanjfriedman.com">Ethan Friedman</a></p>
+  </footer>
+</div>
+  <!-- rummy.js contains the code for entering and manipulating the scores -->
+  <script src="rummy.js"></script>
+  </body>
+</html>
